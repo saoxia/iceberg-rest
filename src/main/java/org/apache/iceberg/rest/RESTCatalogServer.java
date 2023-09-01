@@ -79,6 +79,10 @@ public class RESTCatalogServer {
       LOG.info("No warehouse location set.  Defaulting to temp location: {}", warehouseLocation);
     }
 
+    catalogProperties.put(CatalogProperties.URI, "jdbc:mysql://192.168.180.101:3306/iceberg-rest");
+    catalogProperties.put("user", "root");
+    catalogProperties.put("password", "bi123456@");
+
     LOG.info("Creating catalog with properties: {}", catalogProperties);
     return CatalogUtil.buildIcebergCatalog("rest_backend", catalogProperties, new Configuration());
   }
