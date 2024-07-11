@@ -68,6 +68,7 @@ public class RESTCatalogServer {
         CatalogProperties.URI, "jdbc:sqlite:file:/tmp/iceberg_rest_mode=memory");
     catalogProperties.putIfAbsent("jdbc.schema-version", "V1");
 
+
     // Configure a default location if one is not specified
     String warehouseLocation = catalogProperties.get(CatalogProperties.WAREHOUSE_LOCATION);
 
@@ -79,7 +80,10 @@ public class RESTCatalogServer {
 
       LOG.info("No warehouse location set.  Defaulting to temp location: {}", warehouseLocation);
     }
-
+    catalogProperties.put(CatalogProperties.URI, "jdbc:mysql://192.168.180.101:3306/iceberg-rest");
+    catalogProperties.put("user", "root");
+    catalogProperties.put("password", "bi123456@");
+    
     LOG.info("Creating catalog with properties: {}", catalogProperties);
     return new CatalogContext(CatalogUtil.buildIcebergCatalog("rest_backend", catalogProperties, new Configuration()), catalogProperties);
   }
