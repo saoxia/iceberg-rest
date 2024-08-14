@@ -30,7 +30,7 @@ RUN \
 COPY --from=builder --chown=iceberg:iceberg /app/build/libs/iceberg-rest-image-all.jar /usr/lib/iceberg-rest/iceberg-rest-image-all.jar
 
 ENV CATALOG_CATALOG__IMPL=org.apache.iceberg.jdbc.JdbcCatalog
-ENV CATALOG_URI=jdbc:mysql://192.168.180.101:3306/iceberg-rest
+ENV CATALOG_URI=jdbc:mysql://iceberg:3306/iceberg-rest
 ENV CATALOG_JDBC_USER=root
 ENV CATALOG_JDBC_PASSWORD=bi123456@
 ENV REST_PORT=8181
