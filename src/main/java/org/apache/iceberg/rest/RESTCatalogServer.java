@@ -80,7 +80,7 @@ public class RESTCatalogServer {
 
       LOG.info("No warehouse location set.  Defaulting to temp location: {}", warehouseLocation);
     }
-    catalogProperties.put(CatalogProperties.URI, "jdbc:mysql://192.168.180.101:3306/iceberg-rest");
+    catalogProperties.put(CatalogProperties.URI, "jdbc:mysql://iceberg:3306/iceberg-rest");
     catalogProperties.put("user", "root");
     catalogProperties.put("password", "bi123456@");
     
